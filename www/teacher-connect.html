@@ -147,19 +147,19 @@
             
             // Update the NO button to go back to the correct teachers list
             document.querySelector('.no-button').onclick = function() {
-                location.href = `teachers.html?type=${teacherType}`;
+                window.location.href = `teachers.html?type=${teacherType}`;
             };
             
             // Update the YES button to pass the type parameter
             document.querySelector('.yes-button').onclick = function() {
-                location.href = `calling-teacher.html?name=${teacherName}&type=${teacherType}`;
+                window.location.href = `calling-teacher.html?name=${teacherName}&type=${teacherType}`;
             };
         }
     </script>
 </head>
 <body>
     <div class="app-container">
-        <div class="logo-small" onclick="location.href='welcome-page.html'" style="cursor: pointer;">
+        <div class="logo-small" onclick="window.location.href='welcome-page.html'" style="cursor: pointer;">
             <img src="logo.png" width="60" height="60" alt="Spanive Logo">
         </div>
         

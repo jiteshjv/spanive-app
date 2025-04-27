@@ -197,7 +197,7 @@
 </head>
 <body>
     <div class="app-container">
-        <div class="logo-small" onclick="location.href='welcome-page.html'" style="cursor: pointer;">
+        <div class="logo-small" onclick="window.location.href='welcome-page.html'" style="cursor: pointer;">
             <img src="logo.png" width="60" height="60" alt="Spanive Logo">
         </div>
         
@@ -208,7 +208,7 @@
         </div>
         
         <div class="nav-buttons">
-            <button class="next-button" onclick="location.href='screen-mode.html'">BACK</button>
+            <button class="next-button" onclick="window.location.href='screen-mode.html'">BACK</button>
         </div>
 
         <script>
@@ -362,7 +362,7 @@
                 selectButton.className = `select-button ${type === 'general' ? 'general' : ''}`;
                 selectButton.textContent = 'SELECT';
                 selectButton.onclick = function() {
-                    location.href = `teacher-connect.html?name=${teacher.name}&type=${type}`;
+                    window.location.href = `teacher-connect.html?name=${teacher.name}&type=${type}`;
                 };
                 
                 // Assemble card
