@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Spanive</title>
+    <style>
+        * {
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            -webkit-touch-callout: none;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f9f9f9;
+            overflow: hidden;
+        }
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 5px solid #FFD700;
+            width: 50px;
+            height: 50px;
+            -webkit-animation: spin 1s linear infinite;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .app-icon {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        p {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="Spanive Logo" class="app-icon">
+        <div class="loader"></div>
+        <p>Loading Spanive...</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Give a small delay for the splash screen effect
+            setTimeout(function() {
+                window.location.href = 'spanive-app.html';
+            }, 1500);
+        });
+
+        // This will be used when we add Capacitor
+        document.addEventListener('deviceready', function() {
+            console.log('Device is ready');
+        }, false);
+
+        // Basic service worker registration for offline capability
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    })
+                    .catch(function(err) {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>

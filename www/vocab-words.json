@@ -1,0 +1,14 @@
+{
+  "words": [
+    {"english": "hello", "spanish": "hola"},
+    {"english": "goodbye", "spanish": "adiós"},
+    {"english": "please", "spanish": "por favor"},
+    {"english": "thank you", "spanish": "gracias"},
+    {"english": "yes", "spanish": "sí"},
+    {"english": "no", "spanish": "no"},
+    {"english": "help", "spanish": "ayuda"},
+    {"english": "water", "spanish": "agua"},
+    {"english": "food", "spanish": "comida"},
+    {"english": "friend", "spanish": "amigo/a"}
+  ]
+}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spanive - Personal Teachers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #fff;
+        }
+        
+        .app-container {
+            width: 100%;
+            max-width: 375px;
+            height: 100vh;
+            max-height: 812px;
+            border-radius: 25px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .logo-small {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .header {
+            margin-top: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        
+        .teachers-list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            overflow-y: auto;
+            padding: 0 20px;
+        }
+        
+        .teacher-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .teacher-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .teacher-avatar {
+            width: 50px;
+            height: 50px;
+            background-color: #FFD700;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .teacher-avatar svg {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .teacher-details {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .teacher-name {
+            font-weight: bold;
+        }
+        
+        .teacher-badge {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .badge {
+            background-color: #FFC107;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+        
+        .select-button {
+            background-color: #4ECDC4;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        
+        .nav-buttons {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .next-button {
+            background-color: #4ECDC4;
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="logo-small" onclick="location.href='welcome-page.html'" style="cursor: pointer;">
+            <img src="logo.png" width="60" height="60" alt="Spanive Logo">
+        </div>
+        
+        <div class="header">PERSONAL TEACHERS AVAILABLE</div>
+        
+        <div class="teachers-list">
+            <div class="teacher-card">
+                <div class="teacher-info">
+                    <div class="teacher-avatar">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="35" r="20" fill="#444"/>
+                            <circle cx="50" cy="100" r="45" fill="#444"/>
+                        </svg>
+                    </div>
+                    <div class="teacher-details">
+                        <div class="teacher-name">Maria</div>
+                        <div class="teacher-badge">
+                            <div class="badge">$</div>
+                            <div class="badge">★</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="select-button" onclick="location.href='teacher-connect.html?name=Maria'">SELECT</button>
+            </div>
+            
+            <div class="teacher-card">
+                <div class="teacher-info">
+                    <div class="teacher-avatar">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="35" r="20" fill="#444"/>
+                            <circle cx="50" cy="100" r="45" fill="#444"/>
+                        </svg>
+                    </div>
+                    <div class="teacher-details">
+                        <div class="teacher-name">Carlos</div>
+                        <div class="teacher-badge">
+                            <div class="badge">$</div>
+                            <div class="badge">★</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="select-button" onclick="location.href='teacher-connect.html?name=Carlos'">SELECT</button>
+            </div>
+        </div>
+        
+        <div class="nav-buttons">
+            <button class="next-button" onclick="location.href='teacher-connect.html?name=Maria'">NEXT</button>
+        </div>
+    </div>
+</body>
+</html>

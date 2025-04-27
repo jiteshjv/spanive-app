@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spanive - Teacher Information</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #fff;
+        }
+        
+        .app-container {
+            width: 100%;
+            max-width: 375px;
+            height: 100vh;
+            max-height: 812px;
+            border-radius: 25px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .logo-small {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .header {
+            text-align: center;
+            margin-top: 80px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #FF6B6B;
+            padding: 0 20px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+        
+        .teacher-types {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 0 20px;
+            overflow-y: auto;
+            margin-bottom: 70px;
+        }
+        
+        .teacher-card {
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .teacher-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .teacher-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .pt-icon {
+            background-color: #4ECDC4;
+        }
+        
+        .gt-icon {
+            background-color: #FFD700;
+        }
+        
+        .teacher-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .teacher-description {
+            color: #555;
+            line-height: 1.4;
+            font-size: 0.95rem;
+        }
+        
+        .advantage-list {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        
+        .advantage-list li {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .choose-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: #4ECDC4;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .choose-button.gt {
+            background-color: #FFD700;
+            color: #333;
+        }
+        
+        .choose-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-button {
+            position: absolute;
+            bottom: 30px;
+            background-color: #f1f1f1;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background-color: #e5e5e5;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="logo-small" onclick="location.href='welcome-page.html'" style="cursor: pointer;">
+            <img src="logo.png" width="60" height="60" alt="Spanive Logo">
+        </div>
+        
+        <div class="header">
+            TYPES OF TEACHERS
+        </div>
+        
+        <div class="teacher-types">
+            <div class="teacher-card">
+                <div class="teacher-title">
+                    <div class="teacher-icon pt-icon">PT</div>
+                    <div class="teacher-name">Personal Teachers</div>
+                </div>
+                <div class="teacher-description">
+                    Personal Teachers are certified language instructors who provide customized one-on-one lessons tailored to your specific needs and learning pace.
+                </div>
+                <ul class="advantage-list">
+                    <li>Personalized learning experience</li>
+                    <li>Focused on your specific goals</li>
+                    <li>Regular progress tracking</li>
+                    <li>Flexible scheduling options</li>
+                </ul>
+                <button class="choose-button" onclick="location.href='personal-teachers.html'">
+                    Choose Personal Teacher
+                </button>
+            </div>
+            
+            <div class="teacher-card">
+                <div class="teacher-title">
+                    <div class="teacher-icon gt-icon">GT</div>
+                    <div class="teacher-name">General Teachers</div>
+                </div>
+                <div class="teacher-description">
+                    General Teachers provide structured lessons following a curriculum designed to improve your overall language skills through guided practice in a group setting.
+                </div>
+                <ul class="advantage-list">
+                    <li>Structured learning path</li>
+                    <li>Diverse conversation topics</li>
+                    <li>Interact with other learners</li>
+                    <li>Always available</li>
+                </ul>
+                <button class="choose-button gt" onclick="location.href='personal-teachers.html'">
+                    Choose General Teacher
+                </button>
+            </div>
+        </div>
+        
+        <button class="back-button" onclick="location.href='screen-mode.html'">
+            Back
+        </button>
+    </div>
+</body>
+</html>

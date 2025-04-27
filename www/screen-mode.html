@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spanive - Screen Mode</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #fff;
+        }
+        
+        .app-container {
+            width: 100%;
+            max-width: 375px;
+            height: 100vh;
+            max-height: 812px;
+            border-radius: 25px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .logo-small {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .teacher-question {
+            text-align: center;
+            margin-top: 80px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding: 0 20px;
+            line-height: 1.5;
+            color: #333;
+        }
+        
+        .teacher-options {
+            margin-top: 80px;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .teacher-option {
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .pt-option {
+            background-color: #4ECDC4;
+            color: white;
+        }
+        
+        .gt-option {
+            background-color: #FFD700;
+            color: black;
+        }
+        
+        .teacher-option:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .mode-indicator {
+            position: absolute;
+            bottom: 30px;
+            background-color: #FFD700;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .mode-indicator:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="logo-small" onclick="location.href='welcome-page.html'" style="cursor: pointer;">
+            <img src="logo.png" width="60" height="60" alt="Spanive Logo">
+        </div>
+        
+        <div class="teacher-question">
+            Do you want to talk with a Personal teacher or with a General Teacher?
+        </div>
+        
+        <div class="teacher-options">
+            <button class="teacher-option pt-option" onclick="location.href='teachers.html?type=personal'">PT</button>
+            <button class="teacher-option gt-option" onclick="location.href='teachers.html?type=general'">GT</button>
+        </div>
+        
+        <div class="mode-indicator" onclick="location.href='welcome-page.html'">
+            Screen Mode
+        </div>
+    </div>
+</body>
+</html>

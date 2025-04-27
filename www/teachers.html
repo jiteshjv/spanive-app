@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spanive - Teachers</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #fff;
+        }
+        
+        .app-container {
+            width: 100%;
+            max-width: 375px;
+            height: 100vh;
+            max-height: 812px;
+            border-radius: 25px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            padding-top: 30px;
+        }
+        
+        .logo-small {
+            position: absolute;
+            top: 30px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .header {
+            margin-top: 100px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #333;
+        }
+        
+        .teachers-list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            overflow-y: auto;
+            padding: 0 20px;
+            max-height: 50vh;
+            margin-bottom: 80px;
+        }
+        
+        .teacher-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .teacher-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .teacher-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .teacher-avatar.personal {
+            background-color: #4ECDC4;
+        }
+        
+        .teacher-avatar.general {
+            background-color: #FFD700;
+        }
+        
+        .teacher-avatar svg {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .teacher-details {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .teacher-name {
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        
+        .teacher-badge {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .badge {
+            background-color: #FFC107;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+        
+        .teacher-availability {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 2px;
+        }
+        
+        .select-button {
+            background-color: #4ECDC4;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+        
+        .select-button.general {
+            background-color: #FFD700;
+            color: #333;
+        }
+        
+        .select-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-buttons {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .next-button {
+            background-color: #4ECDC4;
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: bold;
+        }
+        
+        .next-button:hover {
+            background-color: #3dbdb4;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="logo-small" onclick="location.href='welcome-page.html'" style="cursor: pointer;">
+            <img src="logo.png" width="60" height="60" alt="Spanive Logo">
+        </div>
+        
+        <div id="headerTitle" class="header">TEACHERS AVAILABLE</div>
+        
+        <div id="teachersList" class="teachers-list">
+            <!-- Teachers will be loaded here dynamically -->
+        </div>
+        
+        <div class="nav-buttons">
+            <button class="next-button" onclick="location.href='screen-mode.html'">BACK</button>
+        </div>
+
+        <script>
+            // Get the teacher type from URL parameters
+            window.onload = function() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const teacherType = urlParams.get('type') || 'personal'; // Default to personal if not specified
+                
+                // Update the header based on teacher type
+                const headerTitle = document.getElementById('headerTitle');
+                if (teacherType === 'personal') {
+                    headerTitle.textContent = 'PERSONAL TEACHERS AVAILABLE';
+                } else {
+                    headerTitle.textContent = 'GENERAL TEACHERS AVAILABLE';
+                }
+                
+                // Load teachers based on type
+                loadTeachers(teacherType);
+            };
+            
+            // Function to load teachers based on type
+            function loadTeachers(type) {
+                const teachersList = document.getElementById('teachersList');
+                
+                // Clear any existing teachers
+                teachersList.innerHTML = '';
+                
+                if (type === 'personal') {
+                    // Personal teachers data
+                    const personalTeachers = [
+                        {
+                            name: 'Maria',
+                            badges: ['$', '★'],
+                            availability: 'Available now'
+                        },
+                        {
+                            name: 'Carlos',
+                            badges: ['$', '★'],
+                            availability: 'Available in 5 min'
+                        },
+                        {
+                            name: 'Laura',
+                            badges: ['$', '★★'],
+                            availability: 'Available now'
+                        }
+                    ];
+                    
+                    // Add personal teachers to the list
+                    personalTeachers.forEach(teacher => {
+                        const teacherCard = createTeacherCard(teacher, 'personal');
+                        teachersList.appendChild(teacherCard);
+                    });
+                } else {
+                    // General teachers data
+                    const generalTeachers = [
+                        {
+                            name: 'Coach Sofia',
+                            specialty: 'Conversation Guide',
+                            badges: ['★★★'],
+                            availability: 'Always available'
+                        },
+                        {
+                            name: 'Coach Miguel',
+                            specialty: 'Grammar Coach',
+                            badges: ['★★'],
+                            availability: 'Always available'
+                        },
+                        {
+                            name: 'Coach Elena',
+                            specialty: 'Vocabulary Builder',
+                            badges: ['★★'],
+                            availability: 'Always available'
+                        }
+                    ];
+                    
+                    // Add general teachers to the list
+                    generalTeachers.forEach(teacher => {
+                        const teacherCard = createTeacherCard(teacher, 'general');
+                        teachersList.appendChild(teacherCard);
+                    });
+                }
+            }
+            
+            // Function to create a teacher card
+            function createTeacherCard(teacher, type) {
+                const card = document.createElement('div');
+                card.className = 'teacher-card';
+                
+                // Create teacher info section
+                const infoDiv = document.createElement('div');
+                infoDiv.className = 'teacher-info';
+                
+                // Create avatar
+                const avatarDiv = document.createElement('div');
+                avatarDiv.className = `teacher-avatar ${type}`;
+                avatarDiv.innerHTML = `
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="35" r="20" fill="#444"/>
+                        <circle cx="50" cy="100" r="45" fill="#444"/>
+                    </svg>
+                `;
+                
+                // Create details section
+                const detailsDiv = document.createElement('div');
+                detailsDiv.className = 'teacher-details';
+                
+                // Add teacher name
+                const nameDiv = document.createElement('div');
+                nameDiv.className = 'teacher-name';
+                nameDiv.textContent = teacher.name;
+                
+                // Add badges
+                const badgeDiv = document.createElement('div');
+                badgeDiv.className = 'teacher-badge';
+                
+                teacher.badges.forEach(badge => {
+                    const badgeElement = document.createElement('div');
+                    badgeElement.className = 'badge';
+                    badgeElement.textContent = badge;
+                    badgeDiv.appendChild(badgeElement);
+                });
+                
+                // Add availability
+                const availDiv = document.createElement('div');
+                availDiv.className = 'teacher-availability';
+                availDiv.textContent = teacher.availability;
+                
+                // Assemble details
+                detailsDiv.appendChild(nameDiv);
+                detailsDiv.appendChild(badgeDiv);
+                
+                // Add specialty if it exists (for general teachers)
+                if (type === 'general' && teacher.specialty) {
+                    const specialtyDiv = document.createElement('div');
+                    specialtyDiv.className = 'teacher-specialty';
+                    specialtyDiv.textContent = teacher.specialty;
+                    specialtyDiv.style.color = '#FF8C00';
+                    specialtyDiv.style.fontWeight = 'bold';
+                    specialtyDiv.style.fontSize = '0.85rem';
+                    detailsDiv.appendChild(specialtyDiv);
+                }
+                
+                detailsDiv.appendChild(availDiv);
+                
+                // Assemble info section
+                infoDiv.appendChild(avatarDiv);
+                infoDiv.appendChild(detailsDiv);
+                
+                // Create select button
+                const selectButton = document.createElement('button');
+                selectButton.className = `select-button ${type === 'general' ? 'general' : ''}`;
+                selectButton.textContent = 'SELECT';
+                selectButton.onclick = function() {
+                    location.href = `teacher-connect.html?name=${teacher.name}&type=${type}`;
+                };
+                
+                // Assemble card
+                card.appendChild(infoDiv);
+                card.appendChild(selectButton);
+                
+                return card;
+            }
+        </script>
+    </div>
+</body>
+</html>

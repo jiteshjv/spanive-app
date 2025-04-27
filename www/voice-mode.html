@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spanive - Voice Mode</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #fff;
+        }
+        
+        .app-container {
+            width: 100%;
+            max-width: 375px;
+            height: 100vh;
+            max-height: 812px;
+            border-radius: 25px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            justify-content: center;
+        }
+        
+        .logo-small {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .welcome-message {
+            text-align: center;
+            margin-top: 100px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .driving-mode {
+            margin-top: 30px;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 60px;
+        }
+        
+        .content-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            width: 100%;
+            padding: 0 20px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            max-width: 320px;
+        }
+        
+        .option-button {
+            padding: 25px 15px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .mini-stories {
+            background-color: #4ECDC4;
+            color: white;
+        }
+        
+        .vocab {
+            background-color: #FF6B6B;
+            color: white;
+        }
+        
+        .podcast {
+            background-color: #FF9F1C;
+            color: white;
+        }
+        
+        .audio-grammar {
+            background-color: #2EC4B6;
+            color: white;
+        }
+        
+        .option-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .mode-button {
+            position: absolute;
+            bottom: 40px;
+            background-color: #4ECDC4;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .mode-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+    <script>
+        function launchContent(contentType) {
+            // In a real app, this would launch the appropriate content
+            alert(`Starting ${contentType} in voice mode`);
+            // For demo purposes, just redirect back to welcome page
+            // setTimeout(() => {
+            //     window.location.href = 'welcome.html';
+            // }, 1500);
+        }
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        <div class="logo-small" onclick="location.href='welcome-page.html'" style="cursor: pointer;">
+            <img src="logo.png" width="60" height="60" alt="Spanive Logo">
+        </div>
+        
+        <div class="content-options">
+            <button class="option-button mini-stories" onclick="launchContent('Mini Stories')">MINI-STORIES</button>
+            <button class="option-button vocab" onclick="window.location.href='vocab.html'">VOCAB</button>
+            <button class="option-button podcast" onclick="launchContent('Podcast')">PODCAST</button>
+            <button class="option-button audio-grammar" onclick="launchContent('Audio Grammar')">AUDIO-GRAMMAR</button>
+        </div>
+        
+        <button class="mode-button" onclick="window.location.href='welcome-page.html'">Voice Mode</button>
+    </div>
+</body>
+</html>

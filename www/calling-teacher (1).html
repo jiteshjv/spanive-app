@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spanive - Calling Teacher</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #fff;
+        }
+        
+        .app-container {
+            width: 100%;
+            max-width: 375px;
+            height: 100vh;
+            max-height: 812px;
+            border-radius: 25px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            justify-content: center;
+        }
+        
+        .logo-small {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .calling-text {
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .phone-icon {
+            width: 120px;
+            height: 120px;
+            border: 4px solid #4ECDC4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .phone-icon svg {
+            width: 60px;
+            height: 60px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            // Get teacher name from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const teacherName = urlParams.get('name') || 'Maria';
+            
+            // Update the teacher name in the calling text
+            document.getElementById('teacherName').textContent = teacherName;
+            
+            // Redirect to lesson page after 3 seconds
+            setTimeout(function() {
+                window.location.href = 'active-lesson.html?name=' + teacherName;
+            }, 3000);
+        }
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        <div class="logo-small">
+            <img src="logo.png" width="60" height="60" alt="Spanive Logo">
+        </div>
+        
+        <div class="calling-text">
+            CALLING TEACHER <span id="teacherName">MARIA</span>...
+        </div>
+        
+        <div class="phone-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="#333"/>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>
